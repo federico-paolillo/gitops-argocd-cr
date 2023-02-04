@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  namespace: argocd
+  name: cr
+spec:
+  destination:
+    name: in-cluster
+    namespace: cr
+  project: cr
+  source:
+    repoURL: https://github.com/federico-paolillo/gitops-argocd-cr.git
+    path: cr
+    targetRevision: HEAD
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    retry:
+      limit: 3

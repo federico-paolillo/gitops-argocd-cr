@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: container-registry-deployment
+  namespace: cr
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: container-registry
+  template:
+    metadata:
+      labels:
+        app: container-registry
+    volumes:
+      - name: config
+        configMap:
+          name: container-registry-cm
+    spec:
+      containers:
+        - name: container-registry
+          image: registry:2.8.1
+          ports:
+            - containerPort: 5000
+              name: cr-port
+          volumeMounts:
+            - mountPath: /etc/docker/registry
+              name: config
+              readOnly: true

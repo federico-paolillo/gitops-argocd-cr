@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: cr
+  namespace: argocd
+spec:
+  description: Container Registry
+  sourceRepos:
+    - "https://github.com/federico-paolillo/gitops-argocd-cr.git"
+  destinations:
+    - namespace: cr
+      server: https://kubernetes.default.svc
+      name: in-cluster
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace
+  namespaceResourceWhitelist:
+    - group: apps
+      kind: Deployment
+    - group: ""
+      kind: PeristentVolumeClaim
+    - group: ""
+      kind: ConfigMap
+    - group: ""
+      kind: Service
+    - group: "networking.k8s.io"
+      kind: Ingress
