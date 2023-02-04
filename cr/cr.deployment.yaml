@@ -12,11 +12,11 @@ spec:
     metadata:
       labels:
         app: container-registry
-    volumes:
-      - name: cr-config
-        configMap:
-          name: container-registry-cm
     spec:
+      volumes:
+        - name: cr-config
+          configMap:
+            name: container-registry-cm
       containers:
         - name: container-registry
           image: registry:2.8.1
