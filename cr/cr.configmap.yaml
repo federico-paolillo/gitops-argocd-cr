@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: container-registry-cm
 data:
-  config.yaml: |
+  config.yml: |
     version: 0.1
     log:
       fields:
