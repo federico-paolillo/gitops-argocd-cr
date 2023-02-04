@@ -13,7 +13,7 @@ spec:
       labels:
         app: container-registry
     volumes:
-      - name: config
+      - name: cr-config
         configMap:
           name: container-registry-cm
     spec:
@@ -25,5 +25,5 @@ spec:
               name: cr-port
           volumeMounts:
             - mountPath: /etc/docker/registry
-              name: config
+              name: cr-config
               readOnly: true
