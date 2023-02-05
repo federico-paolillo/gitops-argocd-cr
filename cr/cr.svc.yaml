@@ -10,3 +10,4 @@ spec:
   ports:
     - port: 65534
       targetPort: cr-port
+      name: cr-svc-port

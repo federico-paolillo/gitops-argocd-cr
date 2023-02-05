@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: container-registry-ingress
+  namespace: cr
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: cr.federico-paolillo.xyz
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: container-registry-svc
+                port:
+                  name: cr-svc-port
