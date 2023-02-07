@@ -10,8 +10,6 @@ spec:
   dnsNames:
     - "cr.federico-paolillo.xyz"
     - "cr.paolillo-federico.xyz"
-  ipAddresses:
-    - 185.3.93.21 # ingress lb IP
   issuerRef:
     name: letsencrypt-staging
     kind: Issuer
