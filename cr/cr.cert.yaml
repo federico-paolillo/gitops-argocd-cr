@@ -11,5 +11,5 @@ spec:
     - cr.federico-paolillo.xyz
     - cr.paolillo-federico.xyz
   issuerRef:
-    name: letsencrypt-staging
+    name: letsencrypt-prod
     kind: Issuer

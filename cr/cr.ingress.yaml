@@ -21,3 +21,13 @@ spec:
                 name: container-registry-svc
                 port:
                   name: cr-svc-port
+    - host: cr.paolillo-federico.xyz
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: container-registry-svc
+                port:
+                  name: cr-svc-port

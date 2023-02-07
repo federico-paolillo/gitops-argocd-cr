@@ -17,3 +17,23 @@ spec:
           dnsNames:
             - "cr.federico-paolillo.xyz"
             - "cr.paolillo-federico.xyz"
+---
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: letsencrypt-prod
+  namespace: cr
+spec:
+  acme:
+    email: 1.federico.paolillo@gmail.com
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: container-registry-letsencrypt-prod-account-key
+    solvers:
+      - http01:
+          ingress:
+            class: nginx
+        selector:
+          dnsNames:
+            - "cr.federico-paolillo.xyz"
+            - "cr.paolillo-federico.xyz"
