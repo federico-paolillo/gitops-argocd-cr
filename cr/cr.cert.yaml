@@ -1,0 +1,16 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: acme-crt
+spec:
+  secretName: container-registry-tls-secret
+  duration: 2160h # 90 days
+  renewBefore: 168h # 7 days
+  dnsNames:
+    - "cr.federico-paolillo.xyz"
+    - "cr.paolillo-federico.xyz"
+  ipAddresses:
+    - 185.3.93.21 # ingress lb IP
+  issuerRef:
+    name: letsencrypt-staging
+    kind: Issuer

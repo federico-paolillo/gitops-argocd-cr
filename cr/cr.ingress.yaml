@@ -5,6 +5,11 @@ metadata:
   namespace: cr
 spec:
   ingressClassName: nginx
+  tls:
+    - hosts:
+        - cr.federico-paolillo.xyz
+        - cr.paolillo-federico.xyz
+      secretName: container-registry-tls-secret
   rules:
     - host: cr.federico-paolillo.xyz
       http:
