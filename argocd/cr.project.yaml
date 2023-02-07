@@ -25,3 +25,7 @@ spec:
       kind: Service
     - group: "networking.k8s.io"
       kind: Ingress
+    - group: "cert-manager.io"
+      kind: Issuer
+    - group: "cert-manager.io"
+      kind: Certificate

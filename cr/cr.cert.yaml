@@ -1,7 +1,8 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: acme-crt
+  name: container-registry-crt
+  namespace: cr
 spec:
   secretName: container-registry-tls-secret
   duration: 2160h # 90 days
