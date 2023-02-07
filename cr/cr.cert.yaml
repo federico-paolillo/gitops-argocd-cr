@@ -5,8 +5,8 @@ metadata:
   namespace: cr
 spec:
   secretName: container-registry-tls-secret
-  duration: 2160h # 90 days
-  renewBefore: 168h # 7 days
+  duration: 2160h0m0s # 90 days
+  renewBefore: 168h0m0s # 7 days
   dnsNames:
     - cr.federico-paolillo.xyz
     - cr.paolillo-federico.xyz
