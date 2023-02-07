@@ -5,6 +5,7 @@ metadata:
   namespace: cr
   annotations:
     acme.cert-manager.io/http01-edit-in-place: "true"
+    cert-manager.io/issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx
   tls:
