@@ -12,7 +12,7 @@ spec:
     - hosts:
         - cr.federico-paolillo.xyz
         - cr.paolillo-federico.xyz
-      secretName: container-registry-tls-secret
+      secretName: container-registry-tls
   rules:
     - host: cr.federico-paolillo.xyz
       http:
