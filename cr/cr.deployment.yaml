@@ -17,9 +17,19 @@ spec:
         - name: cr-config
           configMap:
             name: container-registry-cm
+        - name: cr-htpasswd
+          configMap:
+            name: container-registry-users
+        - name: cr-storage
+          persistentVolumeClaim:
+            claimName: container-registry-storage-pvc
       containers:
         - name: container-registry
           image: registry:2.8.1
+          resources:
+            limits:
+              memory: 512Mi
+              cpu: 0.5m
           ports:
             - containerPort: 5000
               name: cr-port
@@ -27,3 +37,14 @@ spec:
             - mountPath: /etc/docker/registry
               name: cr-config
               readOnly: true
+            - mountPath: /etc/registry/htpasswd
+              name: cr-htpasswd
+              readOnly: true
+            - mountPath: /var/lib/registry
+              name: cr-storage
+          env:
+            - name: REGISTRY_HTTP_SECRET
+              valueFrom:
+                secretKeyRef:
+                  key: secret
+                  name: container-registry-http-secret # you have to create it yourself outside of the repo to protect the secret
