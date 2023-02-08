@@ -37,7 +37,7 @@ spec:
             - mountPath: /etc/docker/registry
               name: cr-config
               readOnly: true
-            - mountPath: /etc/registry/htpasswd
+            - mountPath: /etc/registry
               name: cr-htpasswd
               readOnly: true
             - mountPath: /var/lib/registry
